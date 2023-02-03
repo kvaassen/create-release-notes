@@ -1,0 +1,19 @@
+name: 'create-release-notes'
+description: 'Generates release notes from commits between the latest tag and the branch HEAD.'
+inputs:
+    head-ref:
+        description: 'Custom head reference'
+        required: false
+        default: 'HEAD'
+    format:
+        description: 'Release note format'
+        required: false
+        default: '- {{subject}} by @{{author}}'
+outputs:
+    release-name:
+        description: 'Release name'
+    release-notes:
+        description: 'Release notes'
+runs:
+    using: 'node12'
+    main: 'dist/index.js'
